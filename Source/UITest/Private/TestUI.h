@@ -20,10 +20,15 @@ class UTestUI : public UUserWidget
 protected:
 	UPROPERTY(Meta = (BindWidget))
 	class UButton* ButtonTest;
+
+	class UButton* ButtonBP;
 	
 	virtual void NativeConstruct() override;
 	virtual void NativeDestruct() override;
 
 	UFUNCTION()
 	void OnButtonClicked();
+
+	UFUNCTION()
+	void OnBPButtonClicked();
 };
