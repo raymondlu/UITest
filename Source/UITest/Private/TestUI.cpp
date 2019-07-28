@@ -2,6 +2,7 @@
 
 #include "TestUI.h"
 #include "Button.h"
+#include "CanvasPanelSlot.h"
 
 void UTestUI::NativeConstruct()
 {
@@ -9,6 +10,11 @@ void UTestUI::NativeConstruct()
 	if (ButtonTest)
 	{
 		ButtonTest->OnClicked.AddDynamic(this, &UTestUI::OnButtonClicked);
+		UCanvasPanelSlot* PanelSlot = Cast<UCanvasPanelSlot>(ButtonTest->Slot);
+		if (PanelSlot)
+		{
+			PanelSlot->SetSize({ 200,200 });
+		}
 	}
 
 	ButtonBP = Cast<UButton>(GetWidgetFromName("ButtonBP"));
